@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../static/myStyle.css">
+    <title>Tasks</title>
+</head>
+<body>
+<div class="card">
+    <h1>Task List</h1>
+
+    <button id="add-task-button">Add New Task</button>
+
+    <table id="task-table">
+
+        <tbody id="task-list">
+        </tbody>
+    </table>
+
+    <div class="task-actions">
+        <button id="modify-task-button" type="button" disabled>Modify Selected Task</button>
+        <button id="delete-task-button" type="button" disabled>Delete Selected Task</button>
+    </div>
+</div>
+
+<script>
+    const addTaskButton = document.getElementById("add-task-button");
+    addTaskButton.addEventListener("click", () => {
+        window.location.href = "create-task.html"; // Redirect to Add Task page
+    });
+</script>
+
+<script type="text/javascript" src="../static/api_task.js"></script>
+</body>
+</html>

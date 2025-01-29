@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../static/myStyle.css">
+
+    <title>Title</title>
+</head>
+<body>
+<h1>Create a New Task</h1>
+<form id="create-task-form">
+  <label for="title">Title:</label>
+  <input type="text" id="title" name="title" required>
+  <br>
+  <label for="description">Description:</label>
+  <textarea id="description" name="description" required></textarea>
+  <br>
+  <label for="priority">Priority:</label>
+  <input type="number" id="priority" name="priority" required>
+  <br>
+  <button type="submit">Create Task</button>
+
+</form>
+<button id="back-to-tasks">Back to tasks</button>
+
+<script type="text/javascript" src="../static/create-task.js"></script>
+</body></html>

@@ -1,0 +1,297 @@
+/* Basic page layout */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f0f4f8;
+    margin: 0;
+    padding: 0;
+    background-image: url('https://www.example.com/your-image.jpg'); /* Replace with your image URL */
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+/* Card container */
+.card {
+    width: 75%; /* Reduced width */
+    margin: 1.5rem auto; /* Reduced margin */
+    padding: 1.5rem; /* Reduced padding */
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 10px; /* Slightly smaller border radius */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(6px); /* Apply blur effect to background */
+}
+
+/* Header style */
+h1 {
+    text-align: center;
+    color: #4a90e2;
+    font-size: 2.5rem; /* Reduced font size */
+    margin-bottom: 1.2rem; /* Reduced margin */
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 4px; /* Reduced letter spacing */
+    text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.2);
+    position: relative;
+    animation: fadeInText 1.5s ease-out;
+}
+
+h1::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(45deg, #f3f2f2, #eceae9, #e6e6e4);
+    background-size: 400%;
+    z-index: -1;
+    filter: blur(8px);
+}
+
+/* Title animation */
+@keyframes fadeInText {
+    0% {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Add task button with gradient */
+#add-task-button, #back-to-tasks {
+    display: block;
+    margin: 15px auto; /* Reduced margin */
+    padding: 12px 25px; /* Reduced padding */
+    font-size: 18px; /* Reduced font size */
+    background: linear-gradient(135deg, #00bcd4, #8e44ad, #f39c12);
+    color: white;
+    border: none;
+    border-radius: 40px; /* Smaller radius for the button */
+    cursor: pointer;
+    transition: background 0.4s ease, transform 0.2s ease, box-shadow 0.3s ease;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+}
+
+#add-task-button:hover, #back-to-tasks:hover {
+    background: linear-gradient(135deg, #8e44ad, #f39c12, #00bcd4);
+    transform: scale(1.05);
+    box-shadow: 0 10px 18px rgba(0, 0, 0, 0.2);
+}
+
+/* Task table styles */
+.task-table {
+    width: 95%; /* Adjusted to fill the container */
+    table-layout: fixed;
+    margin: 1rem; /* Reduced margin */
+    border-collapse: collapse;
+    border-radius: 12px; /* Reduced border radius */
+    overflow: hidden;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    background: rgba(230, 208, 208, 0.9);
+}
+/* Sorting indicator */
+.task-table th.asc::after {
+    content: ' 🔼'; /* Arrow up */
+}
+
+.task-table th.desc::after {
+    content: ' 🔽'; /* Arrow down */
+}
+
+/* Table Header */
+.task-table th, .task-table td {
+    text-align: center;
+    padding: 10px; /* Reduced padding */
+    font-size: 14px; /* Smaller font size */
+}
+
+/* Table Header */
+.task-table th {
+    background: linear-gradient(135deg, #4caf50, #2196f3);
+    color: white;
+    font-size: 1.1rem; /* Smaller font size */
+    font-weight: 600;
+}
+
+/* Table Body */
+.task-table td {
+    padding: 10px; /* Reduced padding */
+    border-bottom: 1px solid #ddd;
+    color: #555;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    word-wrap: break-word;
+}
+
+/* Task row hover effect */
+.task-table tr:hover {
+    background-color: rgba(0, 123, 255, 0.1);
+    cursor: pointer;
+}
+
+/* Task row highlight when selected */
+.task-table tr.selected {
+    background-color: rgba(6, 125, 255, 0.4) !important;
+    color: #e42121 !important;
+    font-weight: bold;
+}
+
+/* Status icon */
+.task-status {
+    font-size: 1.4rem; /* Slightly smaller status icon */
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.task-status:hover {
+    color: #ff5733 !important;
+}
+
+/* Buttons at the bottom of the table */
+.task-actions {
+    display: flex;
+    justify-content: center;
+    margin-top: 25px; /* Reduced margin */
+}
+
+.task-actions button {
+    padding: 10px 20px; /* Reduced padding */
+    font-size: 16px; /* Smaller font size */
+    border-radius: 50px;
+    background: linear-gradient(135deg, #ff6f61, #ff9f43, #ffcc00);
+    color: white;
+    transition: background 0.3s ease, transform 0.2s ease;
+    margin: 0 10px; /* Reduced margin */
+}
+
+.task-actions button:hover {
+    background: linear-gradient(135deg, #ff9f43, #ff6f61, #ffcc00);
+    transform: scale(1.05);
+}
+
+.task-actions button:disabled {
+    background: #ddd;
+    cursor: not-allowed;
+}
+
+/* Form input styles */
+input[type="text"], input[type="number"], textarea {
+    padding: 8px; /* Reduced padding */
+    font-size: 14px; /* Smaller font size */
+    border: 2px solid #ccc;
+    border-radius: 8px; /* Slightly smaller border radius */
+    width: 100%;
+    margin-bottom: 12px; /* Reduced margin */
+}
+
+input[type="text"]:focus, input[type="number"]:focus, textarea:focus {
+    border-color: #4caf50;
+    outline: none;
+}
+
+/* Form styles for Create and Update Task pages */
+form {
+    max-width: 500px;
+    margin: 2rem auto;
+    padding: 1.5rem;
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 10px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+}
+
+button[type="submit"], button[type="button"] {
+    width: 100%;
+    padding: 12px;
+    background: linear-gradient(135deg, #ff9f43, #ff6f61, #ffcc00);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.2s ease;
+}
+
+button[type="submit"]:hover, button[type="button"]:hover {
+    background: linear-gradient(135deg, #ff9f43, #ff6f61, #ffcc00);
+    transform: scale(1.05);
+}
+
+/* Back to Tasks button for Create and Update Task pages */
+#back-to-tasks {
+    display: block;
+    width: 50%;
+    padding: 12px;
+    background-color: #2196F3;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    margin-top: 15px;
+    transition: background 0.3s ease;
+}
+
+#back-to-tasks:hover {
+    background-color: #1976D2;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .card {
+        width: 85%;
+        padding: 1.2rem; /* Reduced padding on smaller screens */
+    }
+
+    .task-table th, .task-table td {
+        font-size: 12px; /* Smaller font size */
+        padding: 8px; /* Reduced padding */
+    }
+
+    #add-task-button {
+        width: 100%;
+        font-size: 14px; /* Smaller button font size */
+    }
+
+    .task-actions button {
+        width: 100%;
+        font-size: 14px; /* Smaller button font size */
+        padding: 8px; /* Reduced padding */
+    }
+
+    form {
+        padding: 1rem; /* Reduced padding in forms on smaller screens */
+    }
+
+    button[type="submit"], button[type="button"] {
+        font-size: 14px;
+        padding: 10px; /* Reduced padding */
+    }
+
+    #back-to-tasks {
+        font-size: 14px;
+        padding: 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    .task-table th, .task-table td {
+        font-size: 11px; /* Further reduced font size */
+        padding: 6px; /* Further reduced padding */
+    }
+
+    .task-actions button {
+        font-size: 13px; /* Smaller button font size */
+        padding: 6px; /* Smaller padding */
+    }
+
+    form {
+        width: 100%;
+        padding: 1rem;
+    }
+}
