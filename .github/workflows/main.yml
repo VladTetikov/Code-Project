@@ -37,7 +37,6 @@ jobs:
           port: ${{ secrets.PORT }}
           script: |
             echo "Running command on remote VM"
-            sudo su - 
-            docker pull us-central1-docker.pkg.dev/taskproject-449320/cloud-app/test-app:${{ github.sha }}
-            docker rm -f cloud-app
-            docker run -d --name cloud-app-p 8080:8080 us-central1-docker.pkg.dev/taskproject-449320/cloud-app/test-app:${{ github.sha }}
+            sudo docker pull us-central1-docker.pkg.dev/taskproject-449320/cloud-app/test-app:${{ github.sha }}
+            sudo docker rm -f cloud-app
+            sudo docker run -d --name cloud-app-p 8080:8080 us-central1-docker.pkg.dev/taskproject-449320/cloud-app/test-app:${{ github.sha }}
