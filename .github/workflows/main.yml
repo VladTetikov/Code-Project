@@ -27,3 +27,17 @@ jobs:
       - name: Push Java App Image to Docker Hub
         run: |
           docker push us-central1-docker.pkg.dev/taskproject-449320/cloud-app/test-app:${{ github.sha }}
+
+      - name: Execute command on remote VM
+        uses: appleboy/ssh-action@v1.2.0
+        with:
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.USERNAME }}
+          key: ${{ secrets.KEY }}
+          port: ${{ secrets.PORT }}
+          script: |
+            echo "Running command on remote VM"
+            sudo su - 
+            docker pull us-central1-docker.pkg.dev/taskproject-449320/cloud-app/test-app:${{ github.sha }}
+            docker rm -f cloud-app
+            docker run -d --name cloud-app-p 8080:8080 us-central1-docker.pkg.dev/taskproject-449320/cloud-app/test-app:${{ github.sha }}
