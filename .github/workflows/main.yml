@@ -40,4 +40,4 @@ jobs:
             sudo cat key.json | docker login -u _json_key --password-stdin https://us-central1-docker.pkg.dev/
             sudo docker pull us-central1-docker.pkg.dev/taskproject-449320/cloud-app/test-app:${{ github.sha }}
             sudo docker rm -f cloud-app >> /dev/null
-            sudo docker run -d --name cloud-app -p 8080:8080 us-central1-docker.pkg.dev/taskproject-449320/cloud-app/test-app:${{ github.sha }}
+            sudo docker run -d --name cloud-app -p 8080:8080 --network my-network us-central1-docker.pkg.dev/taskproject-449320/cloud-app/test-app:${{ github.sha }}
