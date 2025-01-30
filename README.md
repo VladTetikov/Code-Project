@@ -36,6 +36,6 @@ Main screen
 ![Main Screen](https://i.imgur.com/bV4QPk8.png!)  
 Create a task
 ![Create a Task](https://i.imgur.com/2BZFMZH.jpeg)
-Modifie a task
+Modify a task
 ![Update task](https://i.imgur.com/b8O4frz.png)
 ## Run the App
