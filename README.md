@@ -19,10 +19,18 @@ Additionally tasks can be selected from the list and be modified or deleted. The
 The following technologies were used for the project:
 
 - Spring as part of the learning material
+- Docker to get a mySQL image and to make the container of the app
 - Java is the language i am most familiar with, thats why i went with it. The backend is written in java
+- Maven for dependencies management and builds.
 - Javascript for the RestAPI
 - Html as a website for the app
 - Css to Style the html
+
+Outside the scope of the Program:
+
+- Google cloud to host a virtual instance on which to install docker in order to get the app image installed.
+
+Here are some images of the application
 
 Main screen
 ![Main Screen](https://i.imgur.com/bV4QPk8.png!)  
