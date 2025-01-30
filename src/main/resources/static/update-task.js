@@ -1,3 +1,7 @@
+const baseUrl = process.env.NODE_ENV === 'production'
+    ? 'http://34.27.237.197:8080'
+    : 'http://localhost:8080';
+
 document.addEventListener("DOMContentLoaded", () => {
     const urlParams = new URLSearchParams(window.location.search);
     const taskId = urlParams.get("id");
@@ -14,7 +18,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const priorityInput = document.getElementById("priority");
 
 
-    fetch(`http://34.27.237.197:8080/api/task/${taskId}`)
+    fetch(`${baseUrl}/api/task/${taskId}`)
         .then(response => {
             if (!response.ok) throw new Error("Task not found.");
             return response.json();

@@ -1,4 +1,6 @@
-const baseUrl = "http://34.27.237.197:8080/api";
+const baseUrl = process.env.NODE_ENV === 'production'
+    ? 'http://34.27.237.197:8080'
+    : 'http://localhost:8080';
 
 document.addEventListener("DOMContentLoaded", () => {
     const createForm = document.getElementById("create-task-form");

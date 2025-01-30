@@ -3,7 +3,9 @@ document.addEventListener("DOMContentLoaded", () => {
     const modifyTaskButton = document.getElementById("modify-task-button");
     const deleteTaskButton = document.getElementById("delete-task-button");
 
-    const baseUrl = "http://34.27.237.197:8080/api/task";
+    const baseUrl = process.env.NODE_ENV === 'production'
+        ? 'http://34.27.237.197:8080/api/task'
+        : 'http://localhost:8080/api/task';
 
     let selectedTaskId = null;
 
