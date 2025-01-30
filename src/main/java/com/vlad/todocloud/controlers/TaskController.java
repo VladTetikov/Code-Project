@@ -14,7 +14,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
-@CrossOrigin(origins = "http://localhost:63342")
+@CrossOrigin(origins = {"http://localhost:63342", "http://34.27.237.197"})
 @RestController
 @RequestMapping("/api")
 public class TaskController {
