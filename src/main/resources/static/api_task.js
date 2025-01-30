@@ -1,16 +1,17 @@
+import config from './config';
+
 document.addEventListener("DOMContentLoaded", () => {
     const taskList = document.getElementById("task-list");
     const modifyTaskButton = document.getElementById("modify-task-button");
     const deleteTaskButton = document.getElementById("delete-task-button");
 
-    const baseUrl = process.env.NODE_ENV === 'production'
-        ? 'http://34.27.237.197:8080/api/task'
-        : 'http://localhost:8080/api/task';
+    const baseUrl = config.baseUrl;
+    alert(baseUrl)
 
     let selectedTaskId = null;
 
     function fetchTasks() {
-        fetch(baseUrl)
+        fetch(`${baseUrl}/api/task`)
             .then((response) => {
                 if (!response.ok) {
                     throw new Error("Failed to fetch tasks.");

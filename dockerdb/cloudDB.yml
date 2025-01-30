@@ -1,8 +1,10 @@
 services:
   app:
-    image: us-central1-docker.pkg.dev/taskproject-449320/cloud-app/test-app:1.0.2
+    image: us-central1-docker.pkg.dev/taskproject-449320/cloud-app/test-app:1.0.3
     restart: on-failure:5
     container_name: my-app
+    environment:
+      - BASE_URL=http://localhost:8080
     ports:
      - "8080:8080"
     depends_on:
