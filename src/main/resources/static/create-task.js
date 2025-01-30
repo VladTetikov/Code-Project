@@ -1,4 +1,4 @@
-const baseUrl = "http://localhost:8080/api";
+const baseUrl = "http://34.27.237.197:8080/api";
 
 document.addEventListener("DOMContentLoaded", () => {
     const createForm = document.getElementById("create-task-form");
