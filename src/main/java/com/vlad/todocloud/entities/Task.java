@@ -18,15 +18,17 @@ public class Task {
     private String title;
     private String description;
 
-    private boolean status;
+    private Integer priority;
+
     @CreatedDate
     @Column(updatable = false, nullable = false)
     private Instant dateCreated;
-    private Integer priority;
 
     @LastModifiedDate
     @Column(nullable = false)
     private Instant dateModified;
+
+    private boolean status;
 
     public void setTitle(String title) {
         this.title = title;

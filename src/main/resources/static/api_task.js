@@ -94,34 +94,29 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     let currentSortOrder = {};
+
     function sortTable(index, tasks) {
+        // Toggle the sort order for the current column
         if (currentSortOrder[index] === 'asc') {
             currentSortOrder[index] = 'desc';
         } else {
             currentSortOrder[index] = 'asc';
         }
 
-        const sortedTasks = tasks.sort(function(a, b) {
-            let aValue = a[Object.keys(a)[index]];
-            let bValue = b[Object.keys(b)[index]];
-
-            if (index === 3 || index === 4) {
-                aValue = new Date(a[Object.keys(a)[index]]);
-                bValue = new Date(b[Object.keys(b)[index]]);
-            }
-
+        // Sort the tasks array
+        const sortedTasks = tasks.sort((a, b) => {
+            const key = Object.keys(a)[index + 1]; // Get the key for the current column
+            const aValue = a[key]; // Get the value for task A
+            const bValue = b[key]; // Get the value for task B
+            // Perform the comparison based on the sort order
             if (currentSortOrder[index] === 'asc') {
-                if (typeof aValue === "string") {
-                    return aValue.localeCompare(bValue);
-                }
-                return aValue - bValue;
+                return aValue - bValue; // Ascending order for integers
             } else {
-                if (typeof aValue === "string") {
-                    return bValue.localeCompare(aValue);
-                }
-                return bValue - aValue;
+                return bValue - aValue; // Descending order for integers
             }
         });
+
+        // Render the sorted tasks
         renderTasks(sortedTasks);
     }
 

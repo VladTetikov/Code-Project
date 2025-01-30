@@ -27,7 +27,7 @@ document.addEventListener("DOMContentLoaded", () => {
         })
         .catch(error => {
             alert(error.message);
-            window.location.href = "tasks.html";
+            window.location.href = "index.html";
         });
 
 

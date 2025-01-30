@@ -4,7 +4,7 @@ body {
     background-color: #f0f4f8;
     margin: 0;
     padding: 0;
-    background-image: url('https://www.example.com/your-image.jpg'); /* Replace with your image URL */
+    background-image: url("images/water-8100724_1920.jpg"); /* Replace with your image URL */
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
@@ -18,7 +18,8 @@ body {
     background-color: rgba(255, 255, 255, 0.8);
     border-radius: 10px; /* Slightly smaller border radius */
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
-    backdrop-filter: blur(6px); /* Apply blur effect to background */
+    backdrop-filter: blur(1px); /* Apply blur effect to background */
+
 }
 
 /* Header style */
@@ -42,7 +43,6 @@ h1::before {
     left: 0;
     right: 0;
     bottom: 0;
-    background: linear-gradient(45deg, #f3f2f2, #eceae9, #e6e6e4);
     background-size: 400%;
     z-index: -1;
     filter: blur(8px);
