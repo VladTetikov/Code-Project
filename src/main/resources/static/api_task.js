@@ -1,17 +1,12 @@
-import config from './config';
-
 document.addEventListener("DOMContentLoaded", () => {
     const taskList = document.getElementById("task-list");
     const modifyTaskButton = document.getElementById("modify-task-button");
     const deleteTaskButton = document.getElementById("delete-task-button");
 
-    const baseUrl = config.baseUrl;
-    alert(baseUrl)
-
     let selectedTaskId = null;
 
     function fetchTasks() {
-        fetch(`${baseUrl}/api/task`)
+        fetch(`/api/task`)
             .then((response) => {
                 if (!response.ok) {
                     throw new Error("Failed to fetch tasks.");
@@ -130,7 +125,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     function toggleTaskStatus(taskId, newStatus) {
-        fetch(`${baseUrl}/${taskId}/status`, {
+        fetch(`api/task/${taskId}/status`, {
             method: "PATCH",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(newStatus)
@@ -149,7 +144,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     deleteTaskButton.addEventListener("click", () => {
         if (selectedTaskId) {
-            fetch(`${baseUrl}/${selectedTaskId}`, {
+            fetch(`api/task/${selectedTaskId}`, {
                 method: "DELETE",
             })
                 .then((response) => {

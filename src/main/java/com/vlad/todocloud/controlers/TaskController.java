@@ -5,7 +5,6 @@ import com.vlad.todocloud.repositories.TaskRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
 
@@ -14,7 +13,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
-@CrossOrigin(origins = {"http://localhost:63342", "http://34.27.237.197"})
+@CrossOrigin(origins = {"*"})
 @RestController
 @RequestMapping("/api")
 public class TaskController {

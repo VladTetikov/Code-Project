@@ -1,7 +1,3 @@
-const baseUrl = process.env.NODE_ENV === 'production'
-    ? 'http://34.27.237.197:8080'
-    : 'http://localhost:8080';
-
 document.addEventListener("DOMContentLoaded", () => {
     const createForm = document.getElementById("create-task-form");
     const backToTasks = document.getElementById("back-to-tasks")
@@ -16,7 +12,7 @@ document.addEventListener("DOMContentLoaded", () => {
             priority: parseInt(document.getElementById("priority").value, 10),
         };
 
-        fetch(`${baseUrl}/add`, {
+        fetch(`api/add`, {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(newTask)
