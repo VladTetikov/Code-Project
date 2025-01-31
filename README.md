@@ -45,12 +45,32 @@ Modify a task
 
 # Run the App
 
-In order to start the app localy you need to do the following steps:
+In order to start the app locally you need to do the following steps:
 
-- Clone the Repository localy
-- Have the docker engine running
-- Build the docker image with the following command: docker build -t us-central1-docker.pkg.dev/taskproject-449320/cloud-app/test-app
-- Start the app with docker-compose: docker-compose -f cloudDB.yml up
+- Clone the Repository locally:
+```bash
+git clone https://github.com/VladTetikov/toDoCloud.git
+```
+- Have the docker engine running, make sure the following command doesn't fail:
+```bash
+docker ps
+```
+- Build the docker image with the following command:
+```bash
+cd toDoCloud
+docker build . -t us-central1-docker.pkg.dev/taskproject-449320/cloud-app/test-app
+```
+- Start the app with docker-compose:
+```bash
+docker-compose -f dockerdb/cloudDB.yml up
+```
+- To access the portal visit http://localhost:8080
+- Stop the app with docker-compose:
+```bash
+docker-compose -f dockerdb/cloudDB.yml down
+```
+
+> **_NOTE:_** The App will fail to start once or twice because it starts faster than the database. You can ignore the db connection errors thrown.     
 
 ##  Automated Docker Build and Deployment
 
@@ -79,18 +99,18 @@ The workflow runs automatically when code is pushed to the `main` branch.
 
 ---
 
-## 📂 Workflow File: `.github/workflows/docker-build.yml`
+##  Workflow File: `.github/workflows/docker-build.yml`
 
 ### **Key Steps in the Workflow**
 
-#### ** Checkout the Repository**
+#### **Checkout the Repository**
 ```yaml
 - name: Checkout repository
   uses: actions/checkout@v3
 ```
 This step fetches the latest code from the repository.
 
-#### ** Login to Google Artifact Registry (GAR)**
+#### **Login to Google Artifact Registry (GAR)**
 ```yaml
 - name: Login to GAR
   uses: docker/login-action@v3
@@ -101,7 +121,7 @@ This step fetches the latest code from the repository.
 ```
 Authenticates with Google Artifact Registry using a secure JSON key stored in GitHub Secrets.
 
-#### ** Build the Docker Image**
+#### **Build the Docker Image**
 ```yaml
 - name: Build Maven Java App Image
   run: |
@@ -109,7 +129,7 @@ Authenticates with Google Artifact Registry using a secure JSON key stored in Gi
 ```
 Uses Docker to build the application image, tagging it with the commit SHA.
 
-#### ** Push the Image to GAR**
+#### **Push the Image to GAR**
 ```yaml
 - name: Push Java App Image to Docker Hub
   run: |
@@ -117,7 +137,7 @@ Uses Docker to build the application image, tagging it with the commit SHA.
 ```
 Uploads the newly built image to Google Artifact Registry.
 
-#### ** Deploy to the Remote VM**
+#### **Deploy to the Remote VM**
 ```yaml
 - name: Execute command on remote VM
   uses: appleboy/ssh-action@v1.2.0
